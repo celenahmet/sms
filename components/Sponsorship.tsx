@@ -122,12 +122,12 @@ const Sponsorship: React.FC = () => {
               </div>
             </div>
 
-            {/* Platin & Altın */}
-            <div className="grid md:grid-cols-2 gap-8">
+            {/* Platin, Altın & Partner */}
+            <div className="grid md:grid-cols-3 gap-8">
               {/* Platin: Sherin */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
                 <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.platinum')}</span>
-                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full max-w-[200px]">
+                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
                   <img src="/assets/sponsorships/sms24/platin/sherin.png" alt="Sherin" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
@@ -135,20 +135,16 @@ const Sponsorship: React.FC = () => {
               {/* Altın: MAD PARFUMEUR */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
                 <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
-                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full max-w-[200px]">
+                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
                   <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
-            </div>
 
-            {/* Partnerler */}
-            <div>
-              <div className="text-center mb-10">
-                <span className="inline-block px-8 py-3 rounded-full border border-white/20 text-white/50 font-heading font-black text-sm uppercase tracking-[0.2em]">Partnerler</span>
-              </div>
-              <div className="flex justify-center flex-wrap gap-8">
-                <div className="bg-white p-8 rounded-[2rem] flex flex-col items-center justify-center min-w-[240px] min-h-[140px] text-center group transition-all duration-300 shadow-xl hover:-translate-y-1">
-                  <img src="/assets/sponsorships/sms24/partner/reeder.webp" alt="Reeder" className="max-h-[80px] w-auto object-contain mix-blend-multiply" />
+              {/* Partner: Reeder */}
+              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
+                <span className="px-5 py-1.5 rounded-full bg-white/20 text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">Partner</span>
+                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
+                  <img src="/assets/sponsorships/sms24/partner/reeder.webp" alt="Reeder" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
             </div>
@@ -160,21 +156,21 @@ const Sponsorship: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {[
-                  { name: "Cizmeci Time", img: "/assets/sponsorships/sms24/cizmecitime.jpg" },
-                  { name: "Dimes", img: "/assets/sponsorships/sms24/dimes.png" },
+                  { name: "Cizmeci Time", img: "/assets/sponsorships/sms24/fuaye/cizmecitime.jpg" },
+                  { name: "Dimes", img: "/assets/sponsorships/sms24/fuaye/dimes.png" },
                   { name: "Duru", img: null },
-                  { name: "Gold Harvest", img: null },
+                  { name: "Gold Harvest", img: "/assets/sponsorships/sms24/fuaye/goldharvest.jpeg" },
                   { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
                   { name: "MAD Parfumeur", img: "/assets/sponsorships/sms24/altın/madparfum.jpg" },
-                  { name: "Mr. B", img: null },
-                  { name: "Mr. No Dardanel", img: "/assets/sponsorships/sms24/dardanel.png" },
+                  { name: "Mr. B", img: "/assets/sponsorships/sms24/fuaye/mrb.png" },
+                  { name: "Mr. No Dardanel", img: "/assets/sponsorships/sms24/fuaye/dardanel.png" },
                   { name: "Chupa Chups", img: null },
                   { name: "Reeder", img: "/assets/sponsorships/sms24/partner/reeder.webp" },
-                  { name: "Roséce", img: "/assets/sponsorships/sms24/rosece.jpg" },
-                  { name: "Serince Çiğ Köfte", img: "/assets/sponsorships/sms24/serincecigkofte.png" },
-                  { name: "Teaco", img: "/assets/sponsorships/sms24/teaco.webp" },
-                  { name: "The Purest Solutions Academy", img: "/assets/sponsorships/sms24/thepures.jpeg" },
-                  { name: "Ankara Büyükşehir Belediyesi", img: "/assets/sponsorships/sms24/ankarabuyuksehir.png" }
+                  { name: "Roséce", img: "/assets/sponsorships/sms24/fuaye/rosece.jpg" },
+                  { name: "Serince Çiğ Köfte", img: "/assets/sponsorships/sms24/fuaye/serincecigkofte.png" },
+                  { name: "Teaco", img: "/assets/sponsorships/sms24/fuaye/teaco.webp" },
+                  { name: "The Purest Solutions Academy", img: "/assets/sponsorships/sms24/fuaye/thepures.jpeg" },
+                  { name: "Ankara Büyükşehir Belediyesi", img: "/assets/sponsorships/sms24/fuaye/ankarabuyuksehir.png" }
                 ].map((sponsor, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-2xl flex items-center justify-center text-center group transition-all duration-300 hover:bg-white/95 hover:-translate-y-1 h-[100px]">
                     {sponsor.img ? (
