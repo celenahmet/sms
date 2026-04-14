@@ -121,41 +121,61 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      <div className={`fixed inset-0 bg-brand-base/98 backdrop-blur-2xl z-40 transition-all duration-500 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.href} 
-              href={link.href} 
-              className="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors"
-              onClick={(e) => handleLinkClick(e, link.href)}
-            >
-              {link.name}
-            </a>
-          ))}
+      <div className={`fixed inset-0 bg-brand-base/98 backdrop-blur-2xl z-[100] transition-all duration-500 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="absolute top-8 right-6">
+          <button 
+            className="text-white focus:outline-none p-3 rounded-2xl glass border-white/10 hover:bg-white/10 transition-all"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="flex flex-col items-center justify-center h-full gap-8 px-6 text-center">
+          <div className="mb-8">
+            <img src="/assets/smslogo.png" alt="SMS Logo" className="h-16 w-auto mx-auto mb-4" />
+            <div className="w-12 h-1 bg-brand-accent mx-auto rounded-full"></div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <a 
+                key={link.href} 
+                href={link.href} 
+                className="text-3xl font-heading font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors"
+                onClick={(e) => handleLinkClick(e, link.href)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
           
-          {/* SMS Selector Mobile */}
-          <div className="flex flex-col items-center gap-4 mt-4">
-            <span className="text-sm font-black uppercase tracking-widest text-white/40">Etkinlik Seçimi</span>
-            <div className="flex gap-4">
+          <div className="w-full max-w-[200px] h-px bg-white/10 my-4"></div>
+
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">{language === 'tr' ? 'ETKİNLİK SEÇİMİ' : 'SELECT EVENT'}</span>
+            <div className="flex gap-8">
               <button 
                 onClick={() => { setYear('2026'); setIsMobileMenuOpen(false); }}
-                className={`text-xl font-black tracking-widest ${year === '2026' ? 'text-brand-accent' : 'text-white'}`}
+                className={`text-2xl font-black tracking-widest transition-all ${year === '2026' ? 'text-brand-accent scale-110' : 'text-white/40 hover:text-white'}`}
               >
-                SMS'26
+                '26
               </button>
               <button 
                 onClick={() => { setYear('2024'); setIsMobileMenuOpen(false); }}
-                className={`text-xl font-black tracking-widest ${year === '2024' ? 'text-brand-accent' : 'text-white'}`}
+                className={`text-2xl font-black tracking-widest transition-all ${year === '2024' ? 'text-brand-accent scale-110' : 'text-white/40 hover:text-white'}`}
               >
-                SMS'24
+                '24
               </button>
             </div>
           </div>
 
-          <div className="flex items-center gap-6 mt-8">
-            <button onClick={() => { setLanguage('tr'); setIsMobileMenuOpen(false); }} className={`text-xl font-black ${language === 'tr' ? 'text-brand-accent' : 'text-white/40'}`}>TR</button>
-            <button onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }} className={`text-xl font-black ${language === 'en' ? 'text-brand-accent' : 'text-white/40'}`}>EN</button>
+          <div className="flex items-center gap-8 mt-4 bg-white/5 px-8 py-3 rounded-2xl border border-white/10">
+            <button onClick={() => { setLanguage('tr'); setIsMobileMenuOpen(false); }} className={`text-lg font-black tracking-widest transition-all ${language === 'tr' ? 'text-brand-accent' : 'text-white/40'}`}>TR</button>
+            <div className="w-px h-4 bg-white/10"></div>
+            <button onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }} className={`text-lg font-black tracking-widest transition-all ${language === 'en' ? 'text-brand-accent' : 'text-white/40'}`}>EN</button>
           </div>
         </div>
       </div>

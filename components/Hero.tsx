@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[150px] animate-float" style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <h1 className="text-5xl md:text-8xl font-heading font-bold mb-10 uppercase tracking-tighter leading-[0.9]">
+        <h1 className="text-4xl md:text-8xl font-heading font-bold mb-10 uppercase tracking-tighter leading-[0.9]">
           {t('hero.title1')} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-soft">
             {title2}

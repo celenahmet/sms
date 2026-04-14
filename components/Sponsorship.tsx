@@ -24,7 +24,7 @@ const Sponsorship: React.FC = () => {
                   href="https://www.taleworlds.com?ref_acmhacettepe_for_sms_event" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full max-w-sm bg-white p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[420px]"
+                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[360px] md:min-h-[420px]"
                 >
                   <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-12 shadow-lg">Ana Sponsor</span>
                   <div className="relative w-full flex items-center justify-center">
@@ -43,7 +43,7 @@ const Sponsorship: React.FC = () => {
                   href="https://www.altinyildizclassics.com?ref_acmhacettepe_for_sms_event" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full max-w-sm bg-white p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(168,85,247,0.3)] min-h-[420px]"
+                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(168,85,247,0.3)] min-h-[360px] md:min-h-[420px]"
                 >
                   <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-12 shadow-lg">Giyim Sponsoru</span>
                   <div className="relative w-full flex items-center justify-center">
