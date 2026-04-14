@@ -5,7 +5,7 @@ export const speakers24: Speaker[] = [
     id: '1',
     name: 'Merve Boluğur',
     day: 1,
-    image: 'https://sms.acmhacettepe.com/static/media/merve.39062b0b09baa042f02f.png',
+    image: '/assets/speakers/24/mervebolugur.jpeg',
     socials: { instagram: 'https://instagram.com/mervebolugur' },
     tr: {
       role: 'Oyuncu & İçerik Üreticisi',
@@ -24,7 +24,7 @@ export const speakers24: Speaker[] = [
     id: '2',
     name: 'İnanç Konukçu',
     day: 1,
-    image: 'https://sms.acmhacettepe.com/static/media/inan%C3%A7.983d51ad55893c3fe4e2.png',
+    image: '/assets/speakers/24/inanckonukcu.png',
     socials: { instagram: 'https://instagram.com/inanc.konukcu' },
     tr: {
       role: 'Tiyatro & Sinema Oyuncusu',
@@ -43,7 +43,7 @@ export const speakers24: Speaker[] = [
     id: '3',
     name: 'Mervan & Fırat Yayla',
     day: 1,
-    image: 'https://sms.acmhacettepe.com/static/media/mervancharm.ac2c8dab9cbfa4c480c0.png',
+    image: '/assets/speakers/24/mervanfirat.jpeg',
     socials: { instagram: 'https://instagram.com/mervantepelioglu' },
     tr: {
       role: 'YouTube İçerik Üreticileri',
@@ -62,7 +62,7 @@ export const speakers24: Speaker[] = [
     id: '4',
     name: 'Ahsen Bücek',
     day: 2,
-    image: 'https://sms.acmhacettepe.com/static/media/ahsen.f3b192b2b29991252d1e.png',
+    image: '/assets/speakers/24/ahsenbucek.jpg',
     socials: { instagram: 'https://instagram.com/ahsenbucek' },
     tr: {
       role: 'Dijital İçerik Üreticisi',
@@ -81,7 +81,7 @@ export const speakers24: Speaker[] = [
     id: '5',
     name: 'Selin Geçit',
     day: 2,
-    image: 'https://sms.acmhacettepe.com/static/media/selin.59f656adaa4aa9e82ef6.png',
+    image: '/assets/speakers/24/selingecit.jpg',
     socials: { instagram: 'https://instagram.com/selingecit' },
     tr: {
       role: 'Müzisyen & Sanatçı',
@@ -100,7 +100,7 @@ export const speakers24: Speaker[] = [
     id: '6',
     name: 'Baturay Özdemir',
     day: 2,
-    image: 'https://sms.acmhacettepe.com/static/media/baturay.6a9f74984a01b863b5bd.png',
+    image: '/assets/speakers/24/baturayozdemir.jpg',
     socials: { instagram: 'https://instagram.com/baturayozdemir' },
     tr: {
       role: 'Stand-up Sanatçısı',

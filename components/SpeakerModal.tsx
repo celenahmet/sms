@@ -38,14 +38,13 @@ const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) => {
         </button>
 
         <div className="relative w-full h-56 sm:h-72 overflow-hidden flex-shrink-0 bg-black/60">
-          <img src={speaker.image} alt="" className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 brightness-50 scale-110" />
-          <img src={speaker.image} alt={speaker.name} className="relative z-10 w-full h-full object-contain object-top" />
+          <img src={speaker.image} alt={speaker.name} className="relative z-10 w-full h-full object-cover object-center" />
           <div className="absolute inset-0 z-20 bg-gradient-to-t from-brand-base via-brand-base/60 to-transparent opacity-100"></div>
           
           <div className="absolute z-30 bottom-6 left-8 right-8 flex items-end justify-between">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-brand-neon text-[10px] font-black uppercase tracking-widest mb-3">
-                SMS’26 • {t('modal.day')} {speaker.day}
+                SMS’{speaker.id.startsWith('26') ? '26' : '24'} • {t('modal.day')} {speaker.day}
               </span>
               <h2 className="text-3xl md:text-5xl font-heading font-black text-white tracking-tighter drop-shadow-lg">
                 {speaker.name}
