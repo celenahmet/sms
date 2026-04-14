@@ -127,16 +127,16 @@ const Sponsorship: React.FC = () => {
               {/* Platin: Sherin */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
                 <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.platinum')}</span>
-                <div className="h-24 flex items-center justify-center">
-                  <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">Sherin</span>
+                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full max-w-[200px]">
+                  <img src="/assets/sponsorships/sms24/platin/sherin.png" alt="Sherin" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
 
               {/* Altın: MAD PARFUMEUR */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
                 <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
-                <div className="h-24 flex items-center justify-center">
-                  <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">MAD PARFUMEUR</span>
+                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full max-w-[200px]">
+                  <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ const Sponsorship: React.FC = () => {
               </div>
               <div className="flex justify-center flex-wrap gap-8">
                 <div className="bg-white p-8 rounded-[2rem] flex flex-col items-center justify-center min-w-[240px] min-h-[140px] text-center group transition-all duration-300 shadow-xl hover:-translate-y-1">
-                  <span className="text-brand-base font-heading font-black text-2xl uppercase tracking-[0.2em]">Reeder</span>
+                  <img src="/assets/sponsorships/sms24/partner/reeder.webp" alt="Reeder" className="max-h-[80px] w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
             </div>
@@ -160,12 +160,28 @@ const Sponsorship: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {[
-                  "Cizmeci Time", "Dimes", "Duru", "Gold Harvest", "Kotex",
-                  "MAD Parfumeur", "Mr. B", "Mr. No Dardanel", "Chupa Chups", "Reeder",
-                  "Roséce", "Serince Çiğ Köfte", "Teaco", "The Purest Solutions Academy", "Ankara Büyükşehir Belediyesi"
-                ].map((name, idx) => (
-                  <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-center text-center group transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
-                    <span className="text-white font-heading font-bold text-xs uppercase tracking-widest">{name}</span>
+                  { name: "Cizmeci Time", img: "/assets/sponsorships/sms24/cizmecitime.jpg" },
+                  { name: "Dimes", img: "/assets/sponsorships/sms24/dimes.png" },
+                  { name: "Duru", img: null },
+                  { name: "Gold Harvest", img: null },
+                  { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
+                  { name: "MAD Parfumeur", img: "/assets/sponsorships/sms24/altın/madparfum.jpg" },
+                  { name: "Mr. B", img: null },
+                  { name: "Mr. No Dardanel", img: "/assets/sponsorships/sms24/dardanel.png" },
+                  { name: "Chupa Chups", img: null },
+                  { name: "Reeder", img: "/assets/sponsorships/sms24/partner/reeder.webp" },
+                  { name: "Roséce", img: "/assets/sponsorships/sms24/rosece.jpg" },
+                  { name: "Serince Çiğ Köfte", img: "/assets/sponsorships/sms24/serincecigkofte.png" },
+                  { name: "Teaco", img: "/assets/sponsorships/sms24/teaco.webp" },
+                  { name: "The Purest Solutions Academy", img: "/assets/sponsorships/sms24/thepures.jpeg" },
+                  { name: "Ankara Büyükşehir Belediyesi", img: "/assets/sponsorships/sms24/ankarabuyuksehir.png" }
+                ].map((sponsor, idx) => (
+                  <div key={idx} className="bg-white p-4 rounded-2xl flex items-center justify-center text-center group transition-all duration-300 hover:bg-white/95 hover:-translate-y-1 h-[100px]">
+                    {sponsor.img ? (
+                      <img src={sponsor.img} alt={sponsor.name} className="max-h-full max-w-full object-contain mix-blend-multiply" />
+                    ) : (
+                      <span className="text-brand-base font-heading font-bold text-[10px] uppercase tracking-widest">{sponsor.name}</span>
+                    )}
                   </div>
                 ))}
               </div>
