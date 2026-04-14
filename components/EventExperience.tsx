@@ -7,7 +7,7 @@ const memories24 = [
   { url: '/assets/speakers/24/mervebolugur.jpeg', caption: 'Merve Boluğur' },
   { url: '/assets/speakers/24/inanckonukcu.png', caption: 'İnanç Konukçu' },
   { url: '/assets/speakers/24/mervanfirat.jpeg', caption: 'Mervan & Fırat' },
-  { url: '/assets/speakers/24/ahsen.jpeg', caption: 'Ahsen Bücek' },
+  { url: '/assets/speakers/24/ahsenbucek.jpg', caption: 'Ahsen Bücek' },
   { url: '/assets/speakers/24/selingecit.jpg', caption: 'Selin Geçit' },
   { url: '/assets/speakers/24/baturayozdemir.jpg', caption: 'Baturay Özdemir' }
 ];
