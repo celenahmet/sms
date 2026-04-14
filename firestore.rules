@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // İletişim formu koleksiyonuna herkesin yazabilmesine izin ver, ancak sadece kimliği doğrulanmış kullanıcıların okumasına izin ver
+    match /SMS_Web/{document=**} {
+      allow write: if true;
+      allow read: if false; 
+    }
+  }
+}
