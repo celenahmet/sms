@@ -158,27 +158,14 @@ const Sponsorship: React.FC = () => {
               <div className="text-center mb-10">
                 <span className="inline-block px-8 py-3 rounded-full border border-white/20 text-white/50 font-heading font-black text-sm uppercase tracking-[0.2em]">Fuaye Sponsorları</span>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {[
-                  { name: "Maruderm", img: "/assets/sponsorships/maruderm.png" },
-                  { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
-                  { name: "Kupa Coffee Co.", img: "/assets/sponsorships/kupa.png" },
-                  { name: "Lalezza", img: "/assets/sponsorships/lalezza.png" },
-                  { name: "Altınyıldız Classics", img: "/assets/sponsorships/altinyildiz.png" },
-                  { name: "Kahve Dünyası", img: null },
-                  { name: "Tea Squad", img: null },
-                  { name: "Red Bull", img: null }
-                ].map((sponsor, idx) => (
-                  <div key={idx} className="bg-white p-8 rounded-[2rem] flex flex-col items-center justify-center min-h-[140px] text-center group transition-all duration-300 shadow-xl hover:-translate-y-1">
-                    {sponsor.img ? (
-                      <img 
-                        src={sponsor.img} 
-                        alt={sponsor.name} 
-                        className="max-w-full max-h-[70px] object-contain transition-all duration-500 group-hover:scale-110 mix-blend-multiply" 
-                      />
-                    ) : (
-                      <span className="text-brand-base font-heading font-black text-xs uppercase tracking-widest">{sponsor.name}</span>
-                    )}
+                  "Cizmeci Time", "Dimes", "Duru", "Gold Harvest", "Kotex",
+                  "MAD Parfumeur", "Mr. B", "Mr. No Dardanel", "Chupa Chups", "Reeder",
+                  "Roséce", "Serince Çiğ Köfte", "Teaco", "The Purest Solutions Academy", "Ankara Büyükşehir Belediyesi"
+                ].map((name, idx) => (
+                  <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-center justify-center text-center group transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                    <span className="text-white font-heading font-bold text-xs uppercase tracking-widest">{name}</span>
                   </div>
                 ))}
               </div>
