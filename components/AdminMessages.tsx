@@ -200,14 +200,14 @@ const AdminMessages: React.FC = () => {
                         </div>
                       </td>
                       <td className="px-6 py-6">
-                        <span className="text-[10px] font-black bg-white/5 px-2 py-1 rounded-md border border-white/5 text-white/40">{msg.ipAddress || '0.0.0.0'}</span>
+                        <span className="text-[11px] font-black bg-white/10 px-2.5 py-1.5 rounded-md border border-white/10 text-white/70 tracking-tight">{msg.ipAddress || '0.0.0.0'}</span>
                       </td>
-                      <td className="px-6 py-6">
+                      <td className="px-6 py-6 border-l border-white/5">
                         <div className="flex flex-col">
-                          <span className="text-[10px] font-bold text-white/40 truncate max-w-[120px]" title={msg.userAgent}>
-                            {msg.userAgent?.includes('Mac') ? '🍎 macOS' : msg.userAgent?.includes('Win') ? '🪟 Windows' : msg.userAgent?.includes('iPhone') ? '📱 iPhone' : '💻 Device'}
+                          <span className="text-[11px] font-black text-white/70 uppercase tracking-widest truncate max-w-[140px]" title={msg.userAgent}>
+                            {msg.userAgent?.includes('Mac') ? 'macOS' : msg.userAgent?.includes('Win') ? 'Windows' : msg.userAgent?.includes('Android') ? 'Android' : msg.userAgent?.includes('iPhone') ? 'iOS (iPhone)' : 'Unknown'}
                           </span>
-                          <span className="text-[8px] text-white/20 truncate max-w-[120px]">{msg.userAgent?.split(' ')[0]}</span>
+                          <span className="text-[9px] font-bold text-white/30 truncate max-w-[140px] mt-1">{msg.userAgent?.split(' ')[1] || 'Agent'}</span>
                         </div>
                       </td>
                     </tr>
