@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col gap-8">
             <a href="#" className="inline-block group">
               <img 
-                src="https://acsdays.com/assets/acmhacettepe.png" 
+                src="/assets/acmhacettep.png" 
                 alt="ACM Hacettepe Logo" 
                 className="h-20 w-auto transition-transform group-hover:scale-105"
               />

@@ -48,9 +48,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="flex items-center group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
           <img 
-            src="https://acsdays.com/assets/acmhacettepe.png" 
-            alt="ACM Hacettepe Logo" 
-            className="h-12 w-auto transition-transform group-hover:scale-105"
+            src="/assets/smslogo.png" 
+            alt="SMS Logo" 
+            className="h-10 w-auto transition-transform group-hover:scale-105"
           />
         </a>
 
