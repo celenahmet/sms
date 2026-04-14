@@ -29,7 +29,7 @@ const EventTeam: React.FC = () => {
                   <div className="absolute -inset-0.5 bg-brand-neon/10 rounded-3xl blur-md opacity-50 group-hover:opacity-100 transition duration-500"></div>
                   <div className="relative glass p-8 rounded-3xl border border-white/10 text-center transition-all duration-500 group-hover:bg-white/[0.07] group-hover:border-white/20">
                     <span className="text-brand-neon font-heading font-bold tracking-[0.3em] uppercase text-[10px] mb-2 block">{t('team.director')}</span>
-                    <h4 className="text-2xl md:text-3xl font-heading font-medium text-white tracking-tight">
+                    <h4 className="text-xl md:text-2xl font-heading font-medium text-white tracking-tight">
                       Arda Samed <span className="font-black text-white uppercase">ÖZKILIÇ</span>
                     </h4>
                   </div>
