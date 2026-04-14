@@ -134,7 +134,7 @@ const Sponsorship: React.FC = () => {
 
               {/* Altın: MAD PARFUMEUR */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-                <span className="px-5 py-1.5 rounded-full bg-brand-accentSoft text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
+                <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
                 <div className="h-24 flex items-center justify-center">
                   <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">MAD PARFUMEUR</span>
                 </div>
