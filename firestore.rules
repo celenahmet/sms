@@ -4,7 +4,7 @@ service cloud.firestore {
     // İletişim formu koleksiyonuna herkesin yazabilmesine izin ver, ancak sadece kimliği doğrulanmış kullanıcıların okumasına izin ver
     match /SMS_Web/{document=**} {
       allow write: if true;
-      allow read: if false; 
+      allow read: if true; 
     }
   }
 }

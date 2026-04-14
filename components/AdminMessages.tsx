@@ -41,6 +41,10 @@ const AdminMessages: React.FC = () => {
         ...doc.data()
       })) as Message[];
       setMessages(msgs);
+      setError('');
+    }, (err) => {
+      console.error("Firestore Admin Error:", err);
+      setError(`Veri çekilemedi: ${err.message}. (Şifre doğru olsa bile Firebase Rules okuma izni vermiyor olabilir.)`);
     });
 
     return () => unsubscribe();
