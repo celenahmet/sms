@@ -6,7 +6,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '', category: 'Genel İletişim' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', category: 'Genel İletişim' });
   const [showToast, setShowToast] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -34,13 +34,14 @@ const Contact: React.FC = () => {
         category: formData.category,
         name: formData.name,
         email: formData.email,
+        phone: formData.phone,
         message: formData.message,
         userAgent: userAgent,
         ipAddress: ipAddress,
         createdAt: serverTimestamp(),
       });
       setShowToast(true);
-      setFormData({ name: '', email: '', message: '', category: 'Genel İletişim' });
+      setFormData({ name: '', email: '', phone: '', message: '', category: 'Genel İletişim' });
       setTimeout(() => setShowToast(false), 3000);
     } catch (error: any) {
       console.error("Firebase Error details: ", error);
@@ -103,20 +104,33 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="block text-brand-soft text-xs font-black uppercase mb-3 tracking-widest">{t('contact.form.category')}</label>
-                <select 
-                  value={formData.category}
-                  onChange={(e) => setFormData({...formData, category: e.target.value})}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-neon transition-all text-white hover:bg-white/10 appearance-none cursor-pointer"
-                >
-                  <option value="Genel İletişim" className="bg-[#1A0B2E] text-white">{t('contact.category.general')}</option>
-                  <option value="Konuk Ol" className="bg-[#1A0B2E] text-white">{t('contact.category.guest')}</option>
-                  <option value="Sponsor Ol" className="bg-[#1A0B2E] text-white">{t('contact.category.sponsor')}</option>
-                  <option value="Geri Bildirim" className="bg-[#1A0B2E] text-white">{t('contact.category.feedback')}</option>
-                  <option value="İstek / Görüş" className="bg-[#1A0B2E] text-white">{t('contact.category.request')}</option>
-                  <option value="Diğer" className="bg-[#1A0B2E] text-white">{t('contact.category.other')}</option>
-                </select>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-brand-soft text-xs font-black uppercase mb-3 tracking-widest">{t('contact.form.phone')}</label>
+                  <input 
+                    type="tel" 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-neon transition-all text-white placeholder:text-white/20 hover:bg-white/10" 
+                    placeholder={t('contact.form.phone_ph')}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-brand-soft text-xs font-black uppercase mb-3 tracking-widest">{t('contact.form.category')}</label>
+                  <select 
+                    value={formData.category}
+                    onChange={(e) => setFormData({...formData, category: e.target.value})}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-neon transition-all text-white hover:bg-white/10 appearance-none cursor-pointer"
+                  >
+                    <option value="Genel İletişim" className="bg-[#1A0B2E] text-white">{t('contact.category.general')}</option>
+                    <option value="Konuk Ol" className="bg-[#1A0B2E] text-white">{t('contact.category.guest')}</option>
+                    <option value="Sponsor Ol" className="bg-[#1A0B2E] text-white">{t('contact.category.sponsor')}</option>
+                    <option value="Geri Bildirim" className="bg-[#1A0B2E] text-white">{t('contact.category.feedback')}</option>
+                    <option value="İstek / Görüş" className="bg-[#1A0B2E] text-white">{t('contact.category.request')}</option>
+                    <option value="Diğer" className="bg-[#1A0B2E] text-white">{t('contact.category.other')}</option>
+                  </select>
+                </div>
               </div>
 
               <div>

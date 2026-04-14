@@ -7,6 +7,7 @@ interface Message {
   id: string;
   name: string;
   email: string;
+  phone?: string;
   message: string;
   category: string;
   userAgent?: string;
@@ -153,30 +154,36 @@ const AdminMessages: React.FC = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-white/[0.02] border-b border-white/5">
-                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Tarih / Saat</th>
-                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Gönderen</th>
-                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Kategori</th>
-                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest w-1/3">Mesaj Detayı</th>
-                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest text-right">Metadata</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Tarih</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Gönderen</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Mail Adresi</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Telefon</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Kategori</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest w-1/4">Mesaj</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">IP Adresi</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Platform</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.03]">
                 {filteredMessages.length > 0 ? (
                   filteredMessages.map((msg) => (
                     <tr key={msg.id} className="hover:bg-white/[0.02] transition-colors group">
-                      <td className="px-8 py-8 whitespace-nowrap">
-                        <div className="bg-white/5 px-4 py-2 rounded-xl border border-white/5 group-hover:border-brand-accent/20 transition-all inline-block">
-                          <span className="text-xs font-black text-brand-neon block">{msg.createdAt?.toDate().toLocaleDateString('tr-TR')}</span>
-                          <span className="text-[10px] font-bold text-white/40">{msg.createdAt?.toDate().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</span>
-                        </div>
-                      </td>
-                      <td className="px-8 py-8">
+                      <td className="px-6 py-6 whitespace-nowrap">
                         <div className="flex flex-col">
-                          <span className="text-lg font-heading font-black text-white group-hover:text-brand-accent transition-colors">{msg.name}</span>
-                          <span className="text-xs text-brand-soft/60 font-medium truncate max-w-[200px]">{msg.email}</span>
+                          <span className="text-xs font-black text-brand-neon">{msg.createdAt?.toDate().toLocaleDateString('tr-TR')}</span>
+                          <span className="text-[10px] font-bold text-white/30">{msg.createdAt?.toDate().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</span>
                         </div>
                       </td>
-                      <td className="px-8 py-8">
+                      <td className="px-6 py-6">
+                        <span className="text-sm font-heading font-black text-white group-hover:text-brand-accent transition-colors">{msg.name}</span>
+                      </td>
+                      <td className="px-6 py-6">
+                        <span className="text-xs text-brand-soft/60 font-medium">{msg.email}</span>
+                      </td>
+                      <td className="px-6 py-6">
+                        <span className="text-xs text-white/50 font-mono tracking-tighter">{msg.phone || '-'}</span>
+                      </td>
+                      <td className="px-6 py-6">
                         <span className={`inline-block px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] ${
                           msg.category === 'Sponsor Ol' ? 'bg-brand-accent/10 text-brand-accent border border-brand-accent/20' : 
                           msg.category === 'Konuk Ol' ? 'bg-brand-neon/10 text-brand-neon border border-brand-neon/20' : 
@@ -185,26 +192,29 @@ const AdminMessages: React.FC = () => {
                           {msg.category}
                         </span>
                       </td>
-                      <td className="px-8 py-8">
-                        <div className="max-h-24 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10 hover:scrollbar-thumb-brand-accent/20">
-                          <p className="text-sm md:text-base text-white/80 leading-relaxed italic">
+                      <td className="px-6 py-6">
+                        <div className="max-h-24 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10">
+                          <p className="text-sm text-white/80 leading-relaxed italic line-clamp-3 hover:line-clamp-none transition-all">
                             "{msg.message}"
                           </p>
                         </div>
                       </td>
-                      <td className="px-8 py-8 text-right">
-                        <div className="flex flex-col items-end gap-2 opacity-30 group-hover:opacity-100 transition-opacity">
-                           <div className="flex items-center gap-2">
-                             <span className="text-[9px] font-black uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/10">{msg.ipAddress || '0.0.0.0'}</span>
-                           </div>
-                           <span className="text-[8px] font-bold text-white/40 max-w-[120px] truncate" title={msg.userAgent}>{msg.userAgent}</span>
+                      <td className="px-6 py-6">
+                        <span className="text-[10px] font-black bg-white/5 px-2 py-1 rounded-md border border-white/5 text-white/40">{msg.ipAddress || '0.0.0.0'}</span>
+                      </td>
+                      <td className="px-6 py-6">
+                        <div className="flex flex-col">
+                          <span className="text-[10px] font-bold text-white/40 truncate max-w-[120px]" title={msg.userAgent}>
+                            {msg.userAgent?.includes('Mac') ? '🍎 macOS' : msg.userAgent?.includes('Win') ? '🪟 Windows' : msg.userAgent?.includes('iPhone') ? '📱 iPhone' : '💻 Device'}
+                          </span>
+                          <span className="text-[8px] text-white/20 truncate max-w-[120px]">{msg.userAgent?.split(' ')[0]}</span>
                         </div>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="px-8 py-32 text-center">
+                    <td colSpan={8} className="px-8 py-32 text-center">
                       <div className="flex flex-col items-center">
                         <p className="text-white/10 font-heading font-black text-3xl uppercase tracking-tighter italic mb-4">Veri Bulunamadı</p>
                         <p className="text-brand-soft/40 text-xs font-bold uppercase tracking-widest">Arama kriterlerinizi değiştirin veya yeni mesaj bekleyin.</p>
