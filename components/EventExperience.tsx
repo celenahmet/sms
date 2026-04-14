@@ -85,7 +85,7 @@ const EventExperience: React.FC = () => {
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 glass px-6 py-2 rounded-full border-brand-accent/30 text-brand-accent font-heading font-bold text-sm shadow-xl animate-float uppercase">
-                Hacettepe • SMS'{year.substring(2)}
+                {year === '2024' ? 'Hacettepe • SMS Memories' : `Hacettepe • SMS'${year.substring(2)}`}
               </div>
             </div>
           </div>

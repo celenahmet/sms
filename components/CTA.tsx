@@ -8,7 +8,7 @@ const CTA: React.FC = () => {
     <section className="py-24 bg-gradient-to-b from-brand-base to-[#2A0E4A]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-heading font-extrabold text-white animate-pulse">
+          <h2 className="text-4xl md:text-7xl font-heading font-extrabold text-white animate-pulse">
             Şovun bir parçası olun.
           </h2>
         </div>
