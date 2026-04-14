@@ -31,7 +31,7 @@ const Sponsorship: React.FC = () => {
                     <img 
                       src="/assets/sponsorships/taleworlds.png" 
                       alt="TaleWorlds" 
-                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105" 
+                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
                       onError={(e) => { e.currentTarget.classList.add('hidden'); e.currentTarget.nextElementSibling?.classList.remove('hidden') }} 
                     />
                     <span className="hidden text-brand-base font-heading font-black text-3xl uppercase tracking-widest">TaleWorlds</span>
@@ -50,7 +50,7 @@ const Sponsorship: React.FC = () => {
                     <img 
                       src="/assets/sponsorships/altinyildiz.png" 
                       alt="Altınyıldız Classics" 
-                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105" 
+                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
                       onError={(e) => { e.currentTarget.classList.add('hidden'); e.currentTarget.nextElementSibling?.classList.remove('hidden') }} 
                     />
                     <span className="hidden text-brand-base font-heading font-black text-2xl uppercase tracking-tighter">Altınyıldız</span>
@@ -79,7 +79,7 @@ const Sponsorship: React.FC = () => {
                           <img 
                             src={sponsor.img} 
                             alt={sponsor.name} 
-                            className="max-w-full max-h-[80px] object-contain transition-all duration-500 group-hover:scale-110" 
+                            className="max-w-full max-h-[80px] object-contain transition-all duration-500 group-hover:scale-110 mix-blend-multiply" 
                             onError={(e) => { e.currentTarget.classList.add('hidden'); e.currentTarget.nextElementSibling?.classList.remove('hidden') }} 
                           />
                           <span className="hidden text-brand-base/40 font-heading font-black text-xs uppercase tracking-widest">{sponsor.name}</span>
