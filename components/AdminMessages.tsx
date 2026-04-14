@@ -19,6 +19,8 @@ const AdminMessages: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
 
   // Fetch password from Firebase instead of hardcoding
   const handleLogin = async (e: React.FormEvent) => {
@@ -57,31 +59,40 @@ const AdminMessages: React.FC = () => {
       setError('');
     }, (err) => {
       console.error("Firestore Admin Error:", err);
-      setError(`Veri çekilemedi: ${err.message}. (Şifre doğru olsa bile Firebase Rules okuma izni vermiyor olabilir.)`);
+      setError(`Veri çekilemedi: ${err.message}`);
     });
 
     return () => unsubscribe();
   }, [isAuthenticated]);
 
+  const filteredMessages = messages.filter(msg => {
+    const matchesFilter = filter === 'all' || msg.category === filter;
+    const matchesSearch = msg.name.toLowerCase().includes(search.toLowerCase()) || 
+                         msg.email.toLowerCase().includes(search.toLowerCase()) ||
+                         msg.message.toLowerCase().includes(search.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-brand-base flex items-center justify-center p-6">
-        <div className="glass p-12 rounded-[3.5rem] border-white/10 w-full max-w-md text-center shadow-2xl">
-          <h1 className="text-3xl font-heading font-black text-brand-accent mb-8 uppercase tracking-widest">Admin Girişi</h1>
-          <form onSubmit={handleLogin} className="space-y-6">
+      <div className="min-h-screen bg-[#0F041D] flex items-center justify-center p-6 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1),transparent)]">
+        <div className="glass p-12 rounded-[3.5rem] border-white/10 w-full max-w-md text-center shadow-2xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <h1 className="text-3xl font-heading font-black text-brand-accent mb-8 uppercase tracking-widest relative z-10">Admin Panel</h1>
+          <form onSubmit={handleLogin} className="space-y-6 relative z-10">
             <input 
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Şifreyi girin..."
-              className="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-neon transition-all text-white text-center text-xl"
+              placeholder="Giriş anahtarı..."
+              className="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent transition-all text-white text-center text-xl placeholder:text-white/20"
             />
-            {error && <p className="text-red-400 font-bold">{error}</p>}
+            {error && <p className="text-red-400 font-bold bg-red-400/10 py-3 rounded-2xl border border-red-400/20">{error}</p>}
             <button 
               type="submit"
-              className="w-full bg-brand-accent text-brand-base font-black py-4 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-lg"
+              className="w-full bg-brand-accent text-brand-base font-black py-4 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_10px_30px_rgba(255,183,3,0.3)]"
             >
-              Giriş Yap
+              GİRİŞ YAP
             </button>
           </form>
         </div>
@@ -90,60 +101,126 @@ const AdminMessages: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F041D] text-white p-6 md:p-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+    <div className="min-h-screen bg-[#0F041D] text-white p-4 md:p-8 lg:p-12">
+      <div className="max-w-[1600px] mx-auto">
+        {/* Header Section */}
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-12 gap-8">
           <div>
-            <h1 className="text-4xl md:text-5xl font-heading font-black text-brand-accent uppercase tracking-tighter">Mesaj <span className="text-white">Merkezi</span></h1>
-            <p className="text-brand-soft/60 mt-2 font-bold uppercase tracking-widest text-xs">SMS'26 İletişim Formu Başvuruları</p>
+            <div className="flex items-center gap-4 mb-4">
+              <span className="px-4 py-1.5 rounded-full bg-brand-accent/20 text-brand-accent font-black text-[10px] uppercase tracking-widest border border-brand-accent/20">Dashboard v2.0</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase tracking-tighter">MESAJ <span className="text-brand-accent">MERKEZİ</span></h1>
           </div>
-          <div className="glass px-8 py-4 rounded-3xl border-white/5 bg-white/5">
-            <span className="text-brand-neon font-black text-2xl">{messages.length}</span>
-            <span className="ml-3 text-white/40 font-bold uppercase tracking-widest text-xs">Toplam Mesaj</span>
+
+          <div className="flex flex-wrap items-center gap-4 w-full xl:w-auto">
+            <div className="relative flex-grow md:flex-grow-0">
+               <input 
+                type="text"
+                placeholder="Mesajlarda ara..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="bg-white/5 border border-white/10 rounded-2xl px-12 py-4 focus:outline-none focus:border-brand-accent transition-all w-full md:w-80 text-sm placeholder:text-white/20"
+               />
+               <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+               </svg>
+            </div>
+            
+            <select 
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent transition-all text-sm cursor-pointer hover:bg-white/10"
+            >
+              <option value="all" className="bg-[#0F041D]">Tüm Kategoriler</option>
+              <option value="Genel İletişim" className="bg-[#0F041D]">Genel İletişim</option>
+              <option value="Sponsor Ol" className="bg-[#0F041D]">Sponsor Ol</option>
+              <option value="Konuk Ol" className="bg-[#0F041D]">Konuk Ol</option>
+              <option value="Geri Bildirim" className="bg-[#0F041D]">Geri Bildirim</option>
+              <option value="Diğer" className="bg-[#0F041D]">Diğer</option>
+            </select>
+
+            <div className="glass px-8 py-4 rounded-2xl border-white/5 bg-white/5 flex items-center gap-4 group hover:border-brand-neon/20 transition-all">
+              <div className="w-2 h-2 rounded-full bg-brand-neon animate-pulse"></div>
+              <span className="text-white/40 font-bold uppercase tracking-widest text-[10px]">Canlı</span>
+              <span className="text-2xl font-black text-white">{filteredMessages.length}</span>
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-6">
-          {messages.length === 0 ? (
-            <div className="glass p-20 rounded-[3rem] border-white/5 text-center">
-              <p className="text-white/20 font-heading font-black text-2xl uppercase italic">Henüz mesaj gelmedi...</p>
-            </div>
-          ) : (
-            messages.map((msg) => (
-              <div key={msg.id} className="glass p-8 md:p-10 rounded-[2.5rem] border-white/5 hover:border-brand-accent/20 transition-all group relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 flex flex-col items-end gap-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                   <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 rounded-full border border-white/10">{msg.ipAddress || 'Unknown IP'}</span>
-                   <span className="text-[10px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 rounded-full border border-white/10" title={msg.userAgent}>{msg.userAgent?.split(')')[0] + ')'}</span>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/4">
-                    <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 ${
-                      msg.category === 'Sponsor Ol' ? 'bg-brand-accent text-brand-base' : 
-                      msg.category === 'Konuk Ol' ? 'bg-brand-neon text-white' : 'bg-white/10 text-white'
-                    }`}>
-                      {msg.category}
-                    </span>
-                    <h3 className="text-2xl font-heading font-black text-white leading-tight">{msg.name}</h3>
-                    <p className="text-brand-soft font-bold mt-1 mb-4 truncate" title={msg.email}>{msg.email}</p>
-                    <time className="text-xs text-brand-neon bg-brand-neon/10 px-3 py-1 rounded-lg font-black tracking-widest">
-                      {msg.createdAt?.toDate().toLocaleString('tr-TR')}
-                    </time>
-                  </div>
-                  <div className="md:w-3/4 bg-white/5 p-8 rounded-3xl border border-white/5 relative">
-                    <svg className="absolute top-4 left-4 w-8 h-8 text-white/5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21L14.017 18C14.017 16.899 15.191 16 16.5 16C17.808 16 19 16.899 19 18V21H14.017ZM14.017 21C12.709 21 11.5 19.899 11.5 18V15C11.5 13.899 12.709 13 14.017 13H19C20.308 13 21.5 13.899 21.5 15V21H14.017ZM5.017 21L5.017 18C5.017 16.899 6.191 16 7.5 16C8.808 16 10 16.899 10 18V21H5.017ZM5.017 21C3.709 21 2.5 19.899 2.5 18V15C2.5 13.899 3.709 13 5.017 13H10C11.308 13 12.5 13.899 12.5 15V21H5.017Z" />
-                    </svg>
-                    <p className="text-lg md:text-xl text-white/90 leading-relaxed italic whitespace-pre-wrap pl-4">
-                      {msg.message}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
+        {/* Table Section */}
+        <div className="glass rounded-[2rem] border-white/5 overflow-hidden shadow-2xl relative">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-white/[0.02] border-b border-white/5">
+                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Tarih / Saat</th>
+                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Gönderen</th>
+                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Kategori</th>
+                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest w-1/3">Mesaj Detayı</th>
+                  <th className="px-8 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest text-right">Metadata</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.03]">
+                {filteredMessages.length > 0 ? (
+                  filteredMessages.map((msg) => (
+                    <tr key={msg.id} className="hover:bg-white/[0.02] transition-colors group">
+                      <td className="px-8 py-8 whitespace-nowrap">
+                        <div className="bg-white/5 px-4 py-2 rounded-xl border border-white/5 group-hover:border-brand-accent/20 transition-all inline-block">
+                          <span className="text-xs font-black text-brand-neon block">{msg.createdAt?.toDate().toLocaleDateString('tr-TR')}</span>
+                          <span className="text-[10px] font-bold text-white/40">{msg.createdAt?.toDate().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</span>
+                        </div>
+                      </td>
+                      <td className="px-8 py-8">
+                        <div className="flex flex-col">
+                          <span className="text-lg font-heading font-black text-white group-hover:text-brand-accent transition-colors">{msg.name}</span>
+                          <span className="text-xs text-brand-soft/60 font-medium truncate max-w-[200px]">{msg.email}</span>
+                        </div>
+                      </td>
+                      <td className="px-8 py-8">
+                        <span className={`inline-block px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] ${
+                          msg.category === 'Sponsor Ol' ? 'bg-brand-accent/10 text-brand-accent border border-brand-accent/20' : 
+                          msg.category === 'Konuk Ol' ? 'bg-brand-neon/10 text-brand-neon border border-brand-neon/20' : 
+                          'bg-white/5 text-white/60 border border-white/10'
+                        }`}>
+                          {msg.category}
+                        </span>
+                      </td>
+                      <td className="px-8 py-8">
+                        <div className="max-h-24 overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10 hover:scrollbar-thumb-brand-accent/20">
+                          <p className="text-sm md:text-base text-white/80 leading-relaxed italic">
+                            "{msg.message}"
+                          </p>
+                        </div>
+                      </td>
+                      <td className="px-8 py-8 text-right">
+                        <div className="flex flex-col items-end gap-2 opacity-30 group-hover:opacity-100 transition-opacity">
+                           <div className="flex items-center gap-2">
+                             <span className="text-[9px] font-black uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-md border border-white/10">{msg.ipAddress || '0.0.0.0'}</span>
+                           </div>
+                           <span className="text-[8px] font-bold text-white/40 max-w-[120px] truncate" title={msg.userAgent}>{msg.userAgent}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={5} className="px-8 py-32 text-center">
+                      <div className="flex flex-col items-center">
+                        <p className="text-white/10 font-heading font-black text-3xl uppercase tracking-tighter italic mb-4">Veri Bulunamadı</p>
+                        <p className="text-brand-soft/40 text-xs font-bold uppercase tracking-widest">Arama kriterlerinizi değiştirin veya yeni mesaj bekleyin.</p>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+      
+      {/* Background Ambience */}
+      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-brand-accent/5 blur-[120px] -z-10 rounded-full animate-pulse"></div>
+      <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-brand-neon/5 blur-[150px] -z-10 rounded-full"></div>
     </div>
   );
 };
