@@ -1,5 +1,3 @@
-ACM HACETTEPE AR-GE
-
 SMS WEB SITE DEPLOY
 
-AHMET ÇELEN
+https://sms.acmhacettepe.com
