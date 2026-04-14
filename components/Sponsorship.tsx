@@ -102,47 +102,76 @@ const Sponsorship: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto space-y-12">
-            {/* Main Sponsor */}
-          <div className="flex justify-center">
-            <div className="w-full max-w-2xl glass p-12 rounded-[3rem] border-brand-accent/40 bg-gradient-to-br from-brand-accent/10 to-transparent flex flex-col items-center text-center group hover:scale-[1.02] transition-all duration-500">
-              <span className="px-6 py-2 rounded-full bg-brand-accent text-brand-base font-heading font-bold text-xs uppercase tracking-widest mb-8 animate-pulse">{t('spon.main')}</span>
-              <div className="w-48 h-24 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-brand-accent/50 transition-colors">
-                <span className="text-white/20 font-heading font-bold italic uppercase tracking-widest">{t('spon.logo')}</span>
+          <div className="max-w-6xl mx-auto space-y-16">
+            {/* Ana Sponsorlar */}
+            <div>
+              <div className="flex justify-center flex-wrap gap-8">
+                {/* Sponsor: TaleWorlds */}
+                <div 
+                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[360px] md:min-h-[420px]"
+                >
+                  <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-12 shadow-lg">Ana Sponsor</span>
+                  <div className="relative w-full flex items-center justify-center">
+                    <img 
+                      src="/assets/sponsorships/taleworlds.png" 
+                      alt="TaleWorlds" 
+                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
+                    />
+                  </div>
+                </div>
               </div>
-              <h4 className="mt-8 text-2xl font-heading font-bold text-white group-hover:text-brand-accent transition-colors uppercase tracking-widest">{t('spon.partner_name')}</h4>
+            </div>
+
+            {/* Platin & Altın */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Platin: Sherin */}
+              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
+                <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.platinum')}</span>
+                <div className="h-24 flex items-center justify-center">
+                  <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">Sherin</span>
+                </div>
+              </div>
+
+              {/* Altın: Mad Parfüm */}
+              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
+                <span className="px-5 py-1.5 rounded-full bg-brand-accentSoft text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
+                <div className="h-24 flex items-center justify-center">
+                  <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">Mad Parfüm</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Fuaye Sponsorları */}
+            <div>
+              <div className="text-center mb-10">
+                <span className="inline-block px-8 py-3 rounded-full border border-white/20 text-white/50 font-heading font-black text-sm uppercase tracking-[0.2em]">Fuaye Sponsorları</span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {[
+                  { name: "Maruderm", img: "/assets/sponsorships/maruderm.png" },
+                  { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
+                  { name: "Kupa Coffee Co.", img: "/assets/sponsorships/kupa.png" },
+                  { name: "Lalezza", img: "/assets/sponsorships/lalezza.png" },
+                  { name: "Altınyıldız Classics", img: "/assets/sponsorships/altinyildiz.png" },
+                  { name: "Kahve Dünyası", img: null },
+                  { name: "Tea Squad", img: null },
+                  { name: "Red Bull", img: null }
+                ].map((sponsor, idx) => (
+                  <div key={idx} className="bg-white p-8 rounded-[2rem] flex flex-col items-center justify-center min-h-[140px] text-center group transition-all duration-300 shadow-xl hover:-translate-y-1">
+                    {sponsor.img ? (
+                      <img 
+                        src={sponsor.img} 
+                        alt={sponsor.name} 
+                        className="max-w-full max-h-[70px] object-contain transition-all duration-500 group-hover:scale-110 mix-blend-multiply" 
+                      />
+                    ) : (
+                      <span className="text-brand-base font-heading font-black text-xs uppercase tracking-widest">{sponsor.name}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Platinum */}
-            <div className="glass p-10 rounded-[2.5rem] border-brand-soft/30 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-              <span className="text-brand-soft font-heading font-bold text-[10px] uppercase tracking-widest mb-6">{t('spon.platinum')}</span>
-              <div className="w-32 h-20 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
-                 <span className="text-white/10 font-heading font-bold text-[8px] uppercase tracking-widest">{t('spon.logo_small')}</span>
-              </div>
-              <p className="mt-6 text-white/40 font-heading font-bold uppercase tracking-widest text-[10px]">{t('spon.waiting')}</p>
-            </div>
-
-            {/* Gold */}
-            <div className="glass p-10 rounded-[2.5rem] border-brand-accent/30 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-              <span className="text-brand-accent font-heading font-bold text-[10px] uppercase tracking-widest mb-6">{t('spon.gold')}</span>
-              <div className="w-32 h-20 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
-                 <span className="text-white/10 font-heading font-bold text-[8px] uppercase tracking-widest">{t('spon.logo_small')}</span>
-              </div>
-              <p className="mt-6 text-white/40 font-heading font-bold uppercase tracking-widest text-[10px]">{t('spon.waiting')}</p>
-            </div>
-
-            {/* Silver */}
-            <div className="glass p-10 rounded-[2.5rem] border-brand-accentSoft/30 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-              <span className="text-brand-accentSoft font-heading font-bold text-[10px] uppercase tracking-widest mb-6">{t('spon.silver')}</span>
-              <div className="w-32 h-20 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
-                 <span className="text-white/10 font-heading font-bold text-[8px] uppercase tracking-widest">{t('spon.logo_small')}</span>
-              </div>
-              <p className="mt-6 text-white/40 font-heading font-bold uppercase tracking-widest text-[10px]">{t('spon.waiting')}</p>
-            </div>
-          </div>
-        </div>
         )}
       </div>
     </section>
