@@ -20,14 +20,27 @@ const AdminMessages: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Simple security check (Note: For real production, use Firebase Auth)
-  const handleLogin = (e: React.FormEvent) => {
+  // Fetch password from Firebase instead of hardcoding
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'sms2026admin') {
-      setIsAuthenticated(true);
-      setError('');
-    } else {
-      setError('Hatalı şifre!');
+    setError('');
+    
+    try {
+      const { doc, getDoc } = await import('firebase/firestore');
+      const adminDoc = await getDoc(doc(db, 'users', 'admin_config'));
+      
+      if (adminDoc.exists()) {
+        const data = adminDoc.data();
+        if (password === data.password) {
+          setIsAuthenticated(true);
+        } else {
+          setError('Hatalı şifre!');
+        }
+      } else {
+        setError('Admin yapılandırması bulunamadı! (Firestore "users/admin_config" dokümanı eksik)');
+      }
+    } catch (err: any) {
+      setError(`Giriş hatası: ${err.message}`);
     }
   };
 
