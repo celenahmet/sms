@@ -158,7 +158,7 @@ const Sponsorship: React.FC = () => {
                 {[
                   { name: "Cizmeci Time", img: "/assets/sponsorships/sms24/fuaye/cizmecitime.jpg" },
                   { name: "Dimes", img: "/assets/sponsorships/sms24/fuaye/dimes.png" },
-                  { name: "Duru", img: null },
+                  { name: "Duru", img: "/assets/sponsorships/sms24/fuaye/duru.jpg" },
                   { name: "Gold Harvest", img: "/assets/sponsorships/sms24/fuaye/goldharvest.jpeg" },
                   { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
                   { name: "MAD Parfumeur", img: "/assets/sponsorships/sms24/altın/madparfum.jpg" },
