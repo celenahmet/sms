@@ -13,8 +13,28 @@ import CTA from './components/CTA';
 import EventTeam from './components/EventTeam';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AdminMessages from './components/AdminMessages';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname === '/admin' || window.location.pathname === '/admin/') {
+      setIsAdmin(true);
+    }
+  }, []);
+
+  if (isAdmin) {
+    return (
+      <LanguageProvider>
+        <EventProvider>
+          <AdminMessages />
+        </EventProvider>
+      </LanguageProvider>
+    );
+  }
+
   return (
     <LanguageProvider>
       <EventProvider>
