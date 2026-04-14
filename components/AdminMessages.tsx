@@ -160,7 +160,7 @@ const AdminMessages: React.FC = () => {
                   <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Telefon</th>
                   <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Kategori</th>
                   <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest w-1/4">Mesaj</th>
-                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">IP Adresi</th>
+                  <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">IPv4 ADRESİ</th>
                   <th className="px-6 py-6 text-brand-soft/40 font-black uppercase text-[10px] tracking-widest">Platform</th>
                 </tr>
               </thead>
@@ -203,12 +203,9 @@ const AdminMessages: React.FC = () => {
                         <span className="text-[11px] font-black bg-white/10 px-2.5 py-1.5 rounded-md border border-white/10 text-white/70 tracking-tight">{msg.ipAddress || '0.0.0.0'}</span>
                       </td>
                       <td className="px-6 py-6 border-l border-white/5">
-                        <div className="flex flex-col">
-                          <span className="text-[11px] font-black text-white/70 uppercase tracking-widest truncate max-w-[140px]" title={msg.userAgent}>
-                            {msg.userAgent?.includes('Mac') ? 'macOS' : msg.userAgent?.includes('Win') ? 'Windows' : msg.userAgent?.includes('Android') ? 'Android' : msg.userAgent?.includes('iPhone') ? 'iOS (iPhone)' : 'Unknown'}
-                          </span>
-                          <span className="text-[9px] font-bold text-white/30 truncate max-w-[140px] mt-1">{msg.userAgent?.split(' ')[1] || 'Agent'}</span>
-                        </div>
+                        <span className="text-[11px] font-black text-white/70 tracking-widest" title={msg.userAgent}>
+                          {msg.userAgent?.includes('Mac') ? 'macOS' : msg.userAgent?.includes('Win') ? 'Windows' : msg.userAgent?.includes('Android') ? 'Android' : msg.userAgent?.includes('iPhone') ? 'iPhone' : 'Cihaz'}
+                        </span>
                       </td>
                     </tr>
                   ))
