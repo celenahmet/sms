@@ -19,22 +19,20 @@ const memories26 = [
   { url: '/assets/speakers/latenighter.jpg', caption: 'Latenighter' }
 ];
 
+const allMemories = [...memories24, ...memories26];
+
 const EventExperience: React.FC = () => {
   const { t } = useLanguage();
-  const { year } = useEvent();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const memories = year === '2024' ? memories24 : memories26;
-
   useEffect(() => {
-    setCurrentIndex(0); // Reset index on year change
-    if (memories.length > 1) {
+    if (allMemories.length > 1) {
       const timer = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % memories.length);
+        setCurrentIndex((prev) => (prev + 1) % allMemories.length);
       }, 4500);
       return () => clearInterval(timer);
     }
-  }, [memories.length]);
+  }, []);
 
   return (
     <section id="event" className="py-24 bg-brand-base relative overflow-hidden scroll-mt-32">
@@ -55,7 +53,7 @@ const EventExperience: React.FC = () => {
             <div className="relative w-full max-w-md group">
               <div className="glass p-4 pb-12 rounded-[2.5rem] shadow-2xl overflow-hidden transform transition-all duration-500 hover:-rotate-2 border-white/10">
                 <div className="relative aspect-square overflow-hidden rounded-[1.8rem] mb-6 bg-black/60">
-                  {memories.map((memory, index) => (
+                  {allMemories.map((memory, index) => (
                     <React.Fragment key={index}>
                       <img
                         src={memory.url}
@@ -75,9 +73,9 @@ const EventExperience: React.FC = () => {
                 <div className="px-4">
                   <h4 className="text-brand-accent font-heading font-bold uppercase tracking-widest text-xs mb-2">{t('exp.portraits')}</h4>
                   <div className="flex items-center justify-between">
-                    <p className="text-2xl font-heading font-bold text-white transition-all duration-500 min-h-[1.2em] uppercase">{memories[currentIndex].caption}</p>
+                    <p className="text-2xl font-heading font-bold text-white transition-all duration-500 min-h-[1.2em] uppercase">{allMemories[currentIndex].caption}</p>
                     <div className="flex gap-1">
-                      {memories.map((_, i) => (
+                      {allMemories.map((_, i) => (
                         <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-6 bg-brand-neon' : 'w-2 bg-white/20'}`}></div>
                       ))}
                     </div>
@@ -85,7 +83,7 @@ const EventExperience: React.FC = () => {
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 glass px-6 py-2 rounded-full border-brand-accent/30 text-brand-accent font-heading font-bold text-sm shadow-xl animate-float uppercase">
-                {year === '2024' ? 'Hacettepe • SMS Memories' : `Hacettepe • SMS'${year.substring(2)}`}
+                Hacettepe • SMS Memories
               </div>
             </div>
           </div>
