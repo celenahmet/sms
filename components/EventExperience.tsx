@@ -4,12 +4,12 @@ import { useLanguage } from '../LanguageContext';
 import { useEvent } from '../EventContext';
 
 const memories24 = [
-  { url: 'https://sms.acmhacettepe.com/static/media/merve.39062b0b09baa042f02f.png', caption: 'Merve Boluğur' },
-  { url: 'https://sms.acmhacettepe.com/static/media/inan%C3%A7.983d51ad55893c3fe4e2.png', caption: 'İnanç Konukçu' },
-  { url: 'https://sms.acmhacettepe.com/static/media/mervancharm.ac2c8dab9cbfa4c480c0.png', caption: 'Mervan & Fırat' },
-  { url: 'https://sms.acmhacettepe.com/static/media/ahsen.f3b192b2b29991252d1e.png', caption: 'Ahsen Bücek' },
-  { url: 'https://sms.acmhacettepe.com/static/media/selin.59f656adaa4aa9e82ef6.png', caption: 'Selin Geçit' },
-  { url: 'https://sms.acmhacettepe.com/static/media/baturay.6a9f74984a01b863b5bd.png', caption: 'Baturay Özdemir' }
+  { url: '/assets/speakers/24/mervebolugur.jpeg', caption: 'Merve Boluğur' },
+  { url: '/assets/speakers/24/inanckonukcu.png', caption: 'İnanç Konukçu' },
+  { url: '/assets/speakers/24/mervanfirat.jpeg', caption: 'Mervan & Fırat' },
+  { url: '/assets/speakers/24/ahsen.jpeg', caption: 'Ahsen Bücek' },
+  { url: '/assets/speakers/24/selingecit.jpg', caption: 'Selin Geçit' },
+  { url: '/assets/speakers/24/baturayozdemir.jpg', caption: 'Baturay Özdemir' }
 ];
 
 const memories26 = [
