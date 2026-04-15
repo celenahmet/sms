@@ -108,22 +108,22 @@ const Sponsorship: React.FC = () => {
               <div className="flex justify-center flex-wrap gap-8">
                 {/* Sponsor: TaleWorlds */}
                 <div 
-                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[360px] md:min-h-[420px]"
+                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[320px] md:min-h-[360px]"
                 >
                   <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-12 shadow-lg">Ana Sponsor</span>
-                  <div className="relative w-full flex items-center justify-center">
+                  <div className="relative w-full flex items-center justify-center px-4">
                     <img 
                       src="/assets/sponsorships/taleworlds.png" 
                       alt="TaleWorlds" 
-                      className="h-48 w-auto object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
+                      className="h-56 md:h-64 w-full object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Platin, Altın & Partner */}
-            <div className="grid md:grid-cols-3 gap-8">
+            {/* Platin & Altın */}
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Platin: Sherin */}
               <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
                 <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.platinum')}</span>
@@ -137,14 +137,6 @@ const Sponsorship: React.FC = () => {
                 <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
                 <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
                   <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply" />
-                </div>
-              </div>
-
-              {/* Partner: Reeder */}
-              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-                <span className="px-5 py-1.5 rounded-full bg-white/20 text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">Partner</span>
-                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
-                  <img src="/assets/sponsorships/sms24/partner/reeder.webp" alt="Reeder" className="max-h-full w-auto object-contain mix-blend-multiply" />
                 </div>
               </div>
             </div>
@@ -162,7 +154,6 @@ const Sponsorship: React.FC = () => {
                   { name: "Gold Harvest", img: "/assets/sponsorships/sms24/fuaye/goldharvest.jpeg" },
                   { name: "Kotex", img: "/assets/sponsorships/kotex.png" },
                   { name: "MAD Parfumeur", img: "/assets/sponsorships/sms24/altın/madparfum.jpg" },
-                  { name: "Mr. B", img: "/assets/sponsorships/sms24/fuaye/mrb.png" },
                   { name: "Mr. No Dardanel", img: "/assets/sponsorships/sms24/fuaye/dardanel.png" },
                   { name: "Chupa Chups", img: null },
                   { name: "Reeder", img: "/assets/sponsorships/sms24/partner/reeder.webp" },
