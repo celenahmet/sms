@@ -107,15 +107,19 @@ const Sponsorship: React.FC = () => {
             <div>
               <div className="flex justify-center flex-wrap gap-8">
                 {/* Sponsor: TaleWorlds */}
+                {/* Sponsor: TaleWorlds */}
                 <div 
-                  className="w-full max-w-sm bg-white p-8 md:p-12 rounded-[2.5rem] flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[320px] md:min-h-[360px]"
+                  className="w-full max-w-4xl bg-white p-8 md:p-14 rounded-[3rem] flex flex-col md:flex-row items-center justify-between text-center md:text-left group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[200px] gap-8"
                 >
-                  <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-12 shadow-lg">Ana Sponsor</span>
-                  <div className="relative w-full flex items-center justify-center px-4">
+                  <div className="flex flex-col items-center md:items-start shrink-0">
+                    <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-4 shadow-lg">Ana Sponsor</span>
+                    <h4 className="text-2xl font-heading font-black text-brand-base uppercase tracking-tighter opacity-20">2024 Arşiv</h4>
+                  </div>
+                  <div className="relative w-full flex items-center justify-center md:justify-end px-4">
                     <img 
                       src="/assets/sponsorships/taleworlds.png" 
                       alt="TaleWorlds" 
-                      className="h-56 md:h-64 w-full object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
+                      className="h-32 md:h-48 w-auto max-w-full object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
                     />
                   </div>
                 </div>
