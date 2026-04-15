@@ -48,7 +48,7 @@ const Speakers: React.FC = () => {
                 <img 
                   src={speaker.image} 
                   alt={speaker.name} 
-                  className="relative z-10 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  className="relative z-10 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 z-20 bg-gradient-to-t from-brand-base via-brand-base/60 to-transparent opacity-100 group-hover:opacity-80 transition-opacity"></div>
                 

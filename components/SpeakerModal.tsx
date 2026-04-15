@@ -38,7 +38,7 @@ const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) => {
         </button>
 
         <div className="relative w-full h-56 sm:h-72 overflow-hidden flex-shrink-0 bg-black/60">
-          <img src={speaker.image} alt={speaker.name} className="relative z-10 w-full h-full object-cover object-center" />
+          <img src={speaker.image} alt={speaker.name} className="relative z-10 w-full h-full object-cover object-top" />
           <div className="absolute inset-0 z-20 bg-gradient-to-t from-brand-base via-brand-base/60 to-transparent opacity-100"></div>
           
           <div className="absolute z-30 bottom-6 left-8 right-8 flex items-end justify-between">

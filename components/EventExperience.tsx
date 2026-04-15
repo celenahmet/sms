@@ -58,7 +58,7 @@ const EventExperience: React.FC = () => {
                       <img
                         src={memory.url}
                         alt={memory.caption}
-                        className={`absolute inset-0 z-10 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
+                        className={`absolute inset-0 z-10 w-full h-full object-cover object-top transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
                       />
                     </React.Fragment>
                   ))}
