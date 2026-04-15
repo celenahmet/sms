@@ -129,18 +129,30 @@ const Sponsorship: React.FC = () => {
             {/* Platin & Altın */}
             <div className="grid md:grid-cols-2 gap-8">
               {/* Platin: Sherin */}
-              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-                <span className="px-5 py-1.5 rounded-full bg-brand-neon text-white font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.platinum')}</span>
-                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
-                  <img src="/assets/sponsorships/sms24/platin/sherin.png" alt="Sherin" className="max-h-full w-auto object-contain mix-blend-multiply" />
+              <div className="relative group">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                  <span className="px-8 py-2 rounded-full bg-brand-neon text-white font-heading font-black text-xs uppercase tracking-[0.2em] shadow-xl">
+                    {t('spon.platinum')}
+                  </span>
+                </div>
+                <div className="glass p-10 pt-14 rounded-[3rem] border-white/10 flex flex-col items-center hover:-translate-y-2 transition-all duration-500">
+                  <div className="bg-white w-full aspect-[3/1] rounded-[2rem] flex items-center justify-center p-8 shadow-2xl">
+                    <img src="/assets/sponsorships/sms24/platin/sherin.png" alt="Sherin" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
+                  </div>
                 </div>
               </div>
 
               {/* Altın: MAD PARFUMEUR */}
-              <div className="glass p-10 rounded-[3rem] border-white/10 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500">
-                <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-8 whitespace-nowrap">{t('spon.gold')}</span>
-                <div className="h-24 flex items-center justify-center bg-white p-4 rounded-2xl w-full">
-                  <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply" />
+              <div className="relative group">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                  <span className="px-8 py-2 rounded-full bg-brand-accent text-brand-base font-heading font-black text-xs uppercase tracking-[0.2em] shadow-xl">
+                    {t('spon.gold')}
+                  </span>
+                </div>
+                <div className="glass p-10 pt-14 rounded-[3rem] border-white/10 flex flex-col items-center hover:-translate-y-2 transition-all duration-500">
+                  <div className="bg-white w-full aspect-[3/1] rounded-[2rem] flex items-center justify-center p-8 shadow-2xl">
+                    <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
+                  </div>
                 </div>
               </div>
             </div>
