@@ -104,15 +104,16 @@ const Sponsorship: React.FC = () => {
         ) : (
           <div className="max-w-6xl mx-auto space-y-16">
             {/* Ana Sponsor: TaleWorlds */}
-            <div className="relative group max-w-5xl mx-auto mb-20">
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
-                <span className="px-10 py-3 rounded-full bg-brand-accent text-brand-base font-heading font-black text-xs uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(250,204,21,0.3)]">
-                  {t('spon.main')}
-                </span>
-              </div>
-              <div className="bg-[#1A0B2E] p-10 md:p-16 pt-20 rounded-[4rem] border border-white/5 flex flex-col items-center hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2">
-                <div className="bg-white w-full aspect-[4/1] rounded-[2.5rem] flex items-center justify-center p-12 shadow-inner">
-                  <img src="/assets/sponsorships/taleworlds.png" alt="TaleWorlds" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
+            <div className="max-w-5xl mx-auto mb-16">
+              <div className="bg-white p-6 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between shadow-2xl group hover:-translate-y-1 transition-all duration-500 overflow-hidden">
+                <div className="flex flex-col items-center md:items-start mb-6 md:mb-0 shrink-0">
+                  <span className="px-6 py-2 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-[0.2em] shadow-lg mb-3">
+                    {t('spon.main')}
+                  </span>
+                  <span className="text-xl md:text-2xl font-heading font-black text-brand-base/20 uppercase tracking-tighter">2024 Arşiv</span>
+                </div>
+                <div className="relative flex items-center justify-center md:justify-end w-full px-4">
+                  <img src="/assets/sponsorships/taleworlds.png" alt="TaleWorlds" className="h-16 md:h-24 w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
                 </div>
               </div>
             </div>
