@@ -103,40 +103,31 @@ const Sponsorship: React.FC = () => {
           </div>
         ) : (
           <div className="max-w-6xl mx-auto space-y-16">
-            {/* Ana Sponsorlar */}
-            <div>
-              <div className="flex justify-center flex-wrap gap-8">
-                {/* Sponsor: TaleWorlds */}
-                {/* Sponsor: TaleWorlds */}
-                <div 
-                  className="w-full max-w-4xl bg-white p-8 md:p-14 rounded-[3rem] flex flex-col md:flex-row items-center justify-between text-center md:text-left group hover:-translate-y-2 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_30px_60px_rgba(255,183,3,0.3)] min-h-[200px] gap-8"
-                >
-                  <div className="flex flex-col items-center md:items-start shrink-0">
-                    <span className="px-5 py-1.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-[10px] uppercase tracking-widest mb-4 shadow-lg">Ana Sponsor</span>
-                    <h4 className="text-2xl font-heading font-black text-brand-base uppercase tracking-tighter opacity-20">2024 Arşiv</h4>
-                  </div>
-                  <div className="relative w-full flex items-center justify-center md:justify-end px-4">
-                    <img 
-                      src="/assets/sponsorships/taleworlds.png" 
-                      alt="TaleWorlds" 
-                      className="h-32 md:h-48 w-auto max-w-full object-contain transition-all duration-500 group-hover:scale-105 mix-blend-multiply" 
-                    />
-                  </div>
+            {/* Ana Sponsor: TaleWorlds */}
+            <div className="relative group max-w-5xl mx-auto mb-20">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                <span className="px-10 py-3 rounded-full bg-brand-accent text-brand-base font-heading font-black text-xs uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(250,204,21,0.3)]">
+                  {t('spon.main')}
+                </span>
+              </div>
+              <div className="bg-[#1A0B2E] p-10 md:p-16 pt-20 rounded-[4rem] border border-white/5 flex flex-col items-center hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2">
+                <div className="bg-white w-full aspect-[4/1] rounded-[2.5rem] flex items-center justify-center p-12 shadow-inner">
+                  <img src="/assets/sponsorships/taleworlds.png" alt="TaleWorlds" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
                 </div>
               </div>
             </div>
 
             {/* Platin & Altın */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-12">
               {/* Platin: Sherin */}
               <div className="relative group">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                  <span className="px-8 py-2 rounded-full bg-brand-neon text-white font-heading font-black text-xs uppercase tracking-[0.2em] shadow-xl">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                  <span className="px-8 py-2.5 rounded-full bg-[#9333ea] text-white font-heading font-black text-xs uppercase tracking-[0.2em] shadow-[0_10px_30px_rgba(147,51,234,0.3)] whitespace-nowrap">
                     {t('spon.platinum')}
                   </span>
                 </div>
-                <div className="glass p-10 pt-14 rounded-[3rem] border-white/10 flex flex-col items-center hover:-translate-y-2 transition-all duration-500">
-                  <div className="bg-white w-full aspect-[3/1] rounded-[2rem] flex items-center justify-center p-8 shadow-2xl">
+                <div className="bg-[#1A0B2E] p-8 md:p-12 pt-16 rounded-[3.5rem] border border-white/5 flex flex-col items-center hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2">
+                  <div className="bg-white w-full aspect-[2.5/1] rounded-[2rem] flex items-center justify-center p-8 shadow-inner">
                     <img src="/assets/sponsorships/sms24/platin/sherin.png" alt="Sherin" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
                   </div>
                 </div>
@@ -144,13 +135,13 @@ const Sponsorship: React.FC = () => {
 
               {/* Altın: MAD PARFUMEUR */}
               <div className="relative group">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                  <span className="px-8 py-2 rounded-full bg-brand-accent text-brand-base font-heading font-black text-xs uppercase tracking-[0.2em] shadow-xl">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                  <span className="px-8 py-2.5 rounded-full bg-brand-accent text-brand-base font-heading font-black text-xs uppercase tracking-[0.2em] shadow-[0_10px_30px_rgba(250,204,21,0.3)] whitespace-nowrap">
                     {t('spon.gold')}
                   </span>
                 </div>
-                <div className="glass p-10 pt-14 rounded-[3rem] border-white/10 flex flex-col items-center hover:-translate-y-2 transition-all duration-500">
-                  <div className="bg-white w-full aspect-[3/1] rounded-[2rem] flex items-center justify-center p-8 shadow-2xl">
+                <div className="bg-[#1A0B2E] p-8 md:p-12 pt-16 rounded-[3.5rem] border border-white/5 flex flex-col items-center hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2">
+                  <div className="bg-white w-full aspect-[2.5/1] rounded-[2rem] flex items-center justify-center p-8 shadow-inner">
                     <img src="/assets/sponsorships/sms24/altın/madparfum.jpg" alt="MAD PARFUMEUR" className="max-h-full w-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />
                   </div>
                 </div>
