@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, query, orderBy, onSnapshot, Timestamp } from 'firebase/firestore';
+import * as XLSX from 'xlsx';
 
 interface Message {
   id: string;
@@ -65,6 +66,24 @@ const AdminMessages: React.FC = () => {
 
     return () => unsubscribe();
   }, [isAuthenticated]);
+
+  const handleExport = () => {
+    const exportData = filteredMessages.map(msg => ({
+      'Tarih': msg.createdAt?.toDate().toLocaleString('tr-TR'),
+      'Ad Soyad': msg.name,
+      'E-Mail': msg.email,
+      'Telefon': msg.phone || '-',
+      'Kategori': msg.category,
+      'Mesaj': msg.message,
+      'IP Adresi': msg.ipAddress || '-',
+      'Platform': msg.userAgent?.includes('Mac') ? 'macOS' : msg.userAgent?.includes('Win') ? 'Windows' : msg.userAgent?.includes('Android') ? 'Android' : msg.userAgent?.includes('iPhone') ? 'iPhone' : 'Cihaz'
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Mesajlar");
+    XLSX.writeFile(wb, `SMS_Web_Mesajlari_${new Date().toISOString().split('T')[0]}.xlsx`);
+  };
 
   const filteredMessages = messages.filter(msg => {
     const matchesFilter = filter === 'all' || msg.category === filter;
@@ -139,6 +158,16 @@ const AdminMessages: React.FC = () => {
               <option value="Geri Bildirim" className="bg-[#0F041D]">Geri Bildirim</option>
               <option value="Diğer" className="bg-[#0F041D]">Diğer</option>
             </select>
+
+            <button 
+              onClick={handleExport}
+              className="bg-green-600/20 text-green-400 border border-green-600/30 px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-green-600 hover:text-white transition-all flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              XLSX İNDİR
+            </button>
 
             <div className="glass px-8 py-4 rounded-2xl border-white/5 bg-white/5 flex items-center gap-4 group hover:border-brand-neon/20 transition-all">
               <div className="w-2 h-2 rounded-full bg-brand-neon animate-pulse"></div>
